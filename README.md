@@ -1,6 +1,6 @@
 # Emotion Recognition from Text — CNN vs LSTM
-
-**NLP + Deep Learning | University Pattern Recognition Project**
+## Note : the code file is for local use
+**NLP + Deep Learning | Pattern Recognition Project**
 
 This project trains and compares two neural networks—a **1D Convolutional Neural Network (CNN)** and a **Long Short-Term Memory network (LSTM)**—to recognize the emotion expressed in an English sentence. The project uses a labeled Kaggle dataset with six classes: **anger, fear, joy, love, sadness, and surprise**.
 
