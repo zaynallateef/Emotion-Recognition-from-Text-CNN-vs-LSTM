@@ -41,7 +41,7 @@ The notebook checks missing values, removes duplicate sentences, and prevents th
 
 ### Emotion class distribution
 
-![Training emotion class distribution](assets/emotion_class_distribution.png)
+![Training emotion class distribution](Emotions_classes.png)
 
 The *original* 16,000-example training split contains:
 
@@ -58,7 +58,7 @@ The *original* 16,000-example training split contains:
 
 ### Sentence length distribution
 
-![Sentence length distribution](assets/sentence_length_distribution.png)
+![Sentence length distribution](sentence_length.png)
 
 Training sentences average **19.17 words**, and **95% contain 41 words or fewer**. The maximum observed length is **66 words**. Most sentences are short, with a smaller number extending to much longer lengths.
 
@@ -176,7 +176,7 @@ Cell numbers below are **zero-based notebook indices**, so *Cell 0* is the first
 
 ### CNN learning curves
 
-![CNN accuracy and loss curves](assets/cnn_training_curves.png)
+![CNN accuracy and loss curves](CNN.png)
 
 - Training accuracy increases steadily, but validation accuracy levels off near **92%**.
 - Training loss keeps falling, while validation loss is lowest at **epoch 2** (**0.1784**) and then rises.
@@ -186,7 +186,7 @@ Cell numbers below are **zero-based notebook indices**, so *Cell 0* is the first
 
 ### LSTM learning curves
 
-![LSTM accuracy and loss curves](assets/lstm_training_curves.png)
+![LSTM accuracy and loss curves](LSTM.png)
 
 - Training accuracy rises toward **98%**, but validation accuracy stays near **91%**.
 - Validation loss reaches its best level at **epoch 3** (**0.2790**) and then worsens.
@@ -198,7 +198,7 @@ Cell numbers below are **zero-based notebook indices**, so *Cell 0* is the first
 
 ## Final test comparison
 
-The uploaded [`model_comparison.csv`](results/model_comparison.csv) contains these results on the **1,986-sentence test set**:
+The uploaded [`model_comparison.csv`](model_comparison.csv) contains these results on the **1,986-sentence test set**:
 
 | Metric | CNN | LSTM | Better result |
 |---|---:|---:|---|
@@ -220,7 +220,7 @@ Rows are **true emotions** and columns are **predicted emotions**. A diagonal ce
 
 ### CNN confusion matrix
 
-![CNN confusion matrix](assets/cnn_confusion_matrix.png)
+![CNN confusion matrix](cnn_confusion_matrix.png)
 
 - The CNN recognizes **643 of 688 joy** sentences and **558 of 579 sadness** sentences.
 - It labels **36 joy sentences as love**, suggesting overlap between affectionate and happy wording.
@@ -229,7 +229,7 @@ Rows are **true emotions** and columns are **predicted emotions**. A diagonal ce
 
 ### LSTM confusion matrix
 
-![LSTM confusion matrix](assets/lstm_confusion_matrix.png)
+![LSTM confusion matrix](lstm_confusion_matrix.png)
 
 - The LSTM correctly identifies **629 of 688 joy** and **557 of 579 sadness** sentences.
 - It labels **43 joy** sentences as love, more than the CNN's 36.
@@ -264,7 +264,7 @@ The `predict_emotion` function processes a sentence with the same cleaning and v
 
 ### Custom expression: “I feel so blue today”
 
-![CNN prediction scores for I feel so blue today](assets/cnn_custom_sentence.png)
+![CNN prediction scores for I feel so blue today](test_sentence.png)
 
 The CNN predicts **sadness**, which matches the usual meaning of the idiom *feeling blue*. However, the model's highest output is only around **0.25**, with joy close behind at about **0.24**. The model is **uncertain** despite selecting a plausible label.
 
@@ -293,29 +293,3 @@ The CNN predicts **sadness**, which matches the usual meaning of the idiom *feel
 Both deep-learning models learned useful features for recognizing emotions in short English sentences. The **CNN achieved 92.45% test accuracy and 0.8760 macro F1**, outperforming the **LSTM's 91.24% and 0.8666 macro F1**. CNN also made **24 fewer errors** across the 1,986 test sentences. LSTM recognized more surprise examples, illustrating that overall accuracy does not tell the full story.
 
 For this dataset and training setup, **CNN is the better overall choice**. More broadly, the project demonstrates the Pattern Recognition pipeline: **clean the inputs, represent text numerically, learn features, classify patterns, and evaluate generalization**.
-
-## Repository files
-
-```text
-emotion-recognition-github/
-├── README.md                      # This project explanation
-├── code.ipynb                     # Original notebook; all 45 cells retained
-├── train.txt                      # Dataset files provided for this project
-├── val.txt
-├── test.txt
-├── requirements.txt
-├── assets/
-│   ├── emotion_class_distribution.png
-│   ├── sentence_length_distribution.png
-│   ├── cnn_training_curves.png
-│   ├── lstm_training_curves.png
-│   ├── cnn_confusion_matrix.png
-│   ├── lstm_confusion_matrix.png
-│   └── cnn_custom_sentence.png
-└── results/
-    └── model_comparison.csv
-```
-
-The notebook additionally creates a `models/` directory for trained weights and may write confusion-matrix images and vocabulary metadata to `results/` and `models/` when run.
-
-**Data attribution:** Kaggle, [Emotions Dataset for NLP](https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp). Before publishing dataset files in a public GitHub repository, check the dataset's redistribution terms. You can remove `train.txt`, `val.txt`, and `test.txt` from the public repository and ask readers to download them from Kaggle instead.
