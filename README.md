@@ -78,7 +78,7 @@ Training sentences average **19.17 words**, and **95% contain 41 words or fewer*
 1. Install the dependencies (or use a Kaggle environment that already provides them):
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements.txt (not here in the project)
    ```
 
 2. Open [`code.ipynb`](code.ipynb) and run cells **in order**. The notebook's first cell reads `train.txt`, `val.txt` and `test.txt` from the **current working directory**; the included text files are placed alongside the notebook for that reason.
