@@ -659,16 +659,3 @@ PROJECT SOURCES | مصادر معلومات المشروع
 The explanations use the supplied code and recorded outputs, not new training runs.
 يعتمد الشرح على الكود والمخرجات المسجلة المقدّمة، وليس على تجارب تدريب جديدة.
 
-- D:/pattern_recognition_project/code.ipynb
-- D:/pattern_recognition_project/README.md
-- D:/pattern_recognition_project/results/model_comparison.csv
-- Supplied class-distribution, sentence-length, learning-curve,
-  confusion-matrix, and custom-prediction figures in results/.
-
-Code locations, using zero-based notebook cell indices:
-Cleaning 2; EDA 3 and 5; deduplication 7; label encoding 11;
-vectorization 13–14; CNN 19–23; LSTM 26–31;
-test evaluation 33–37; new-sentence predictions 39–43.
-
-Dataset attribution: Kaggle, Emotions Dataset for NLP.
-[Kaggle: Emotions Dataset for NLP](https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp)
